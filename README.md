@@ -62,7 +62,7 @@ Generator instancji (szerzej opisany na stronie domowej)
 ## `euler.c`, `fleury.h` i `hierholzer.h`
 
 - `euler.c` tworzy grafy o stałej liczbie wierzchołków i zmiennej gęstości (czyli liczbie krawędzi)
-- Dla każdego graf wywoływana jest funkcja `euler`, która znajduje cykl Eulera
+- Dla każdego grafu wywoływana jest funkcja `euler`, która znajduje cykl Eulera
 - Znaleziony cykl jest sprawdzany (użyta musi być każda krawędź dokładnie raz)
 - Pliki nagłówkowe `fleury.h` i `hierholzer.h` zawierają implementację funkcji `euler`
 - Kompilacja z flagą `-DFLEURY` włącza implementację z pliku `fleury.h`
