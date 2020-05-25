@@ -9,15 +9,59 @@
 #include "adjacency_matrix.h"
 #include "instance_generator.h"
 
+
 #ifdef HAMILTON_NO_CYCLE
-    int ns[] = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+    int ns[] = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
 #else
     int ns[] = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
 #endif
 float density = 0.5f;
 
 bool hamilton(struct graph *g, int n, int *path) {
-    // TODO: implement this
+
+int u = path[n-1];                                  
+if (n == g->size)                                   
+  {
+    int v = path[0];                                
+    if (graph_has_edge(g, u , v))                   
+    {
+      return true;                                  
+    }
+    else                                            
+    {
+      return false;                               
+    }
+  }
+
+
+  for (int i = 0; i < g->size; i++)                 
+  {
+    if (graph_has_edge(g, u , i))                   
+    {
+      bool xfind = false;                         
+      for (int j = 0; j < n; j++)                   
+      {
+        if (i == path[j])                           
+        {
+          xfind = true;                            
+          break;                                    
+        }
+      }
+
+
+
+      if (xfind == false)                         
+      {
+        path[n] = i;                              
+        if (hamilton(g, n + 1, path))              
+        {
+          return true;                            
+        }
+      }
+    }
+  }
+
+  return false;                                   
 }
 
 void check_hamilton(struct graph *g, int *path) {
