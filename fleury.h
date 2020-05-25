@@ -27,7 +27,7 @@ bool bridge(struct graph *g, int u, int v)
         return true;                                          
 }
 
-// zliczanie krawedzi
+
 int counting( struct graph *g, int u){
     int quantity = 0;
     for ( int i = 0; i < g->size ; i++){
